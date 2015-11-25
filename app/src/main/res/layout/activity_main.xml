@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/ic_bj"
+    tools:context=".MainActivity">
+    <RelativeLayout
+        android:id="@+id/myRelative"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<TextView
+    android:id="@+id/explainTv"
+    android:text="@string/tv_explain"
+    android:gravity="center"
+    android:textColor="@color/colorWhite"
+    android:layout_marginLeft="5dp"
+    android:textSize="36sp"
+    android:typeface="monospace"
+    android:background="@drawable/image_oval_explain"
+    android:layout_width="130dp"
+    android:layout_height="150dp" />
+<TextView
+    android:id="@+id/scoreTv"
+    android:text="@string/tv_score"
+    android:layout_marginLeft="8dp"
+    android:gravity="center"
+    android:textColor="@color/colorBlueGray_a"
+    android:textSize="28sp"
+    android:layout_toRightOf="@+id/explainTv"
+    android:background="@drawable/tv_oval_score"
+    android:layout_width="110dp"
+    android:layout_height="90dp" />
+    <TextView
+        android:id="@+id/highScoreTv"
+        android:text="@string/tv_high_score"
+        android:layout_marginLeft="8dp"
+        android:gravity="center"
+        android:textColor="@color/colorBlueGray_a"
+        android:textSize="24sp"
+        android:layout_toRightOf="@+id/scoreTv"
+        android:background="@drawable/tv_oval_score"
+        android:layout_width="110dp"
+        android:layout_height="90dp" />
+    <Button
+        android:id="@+id/reStartBtn"
+        android:text="@string/btn_reStart"
+        android:layout_below="@+id/scoreTv"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/btn_start_selector"
+        android:layout_toRightOf="@+id/explainTv"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="110dp"
+        android:layout_height="50dp" />
+    <Button
+        android:id="@+id/reBackBtn"
+        android:text="@string/btn_reBack"
+        android:layout_below="@+id/highScoreTv"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/btn_start_selector"
+        android:layout_toRightOf="@+id/reStartBtn"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="110dp"
+        android:layout_height="50dp" />
+    </RelativeLayout>
+    <GridLayout
+        android:id="@+id/myGridLayout"
+        android:layout_below="@+id/myRelative"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorTeal_a"
+       android:layout_centerInParent="true"
+        android:paddingBottom="5dp"
+        android:paddingRight="5dp"
+        android:paddingLeft="2dp"
+        android:paddingTop="2dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </GridLayout>
+</RelativeLayout>
