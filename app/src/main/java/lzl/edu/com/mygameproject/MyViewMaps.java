@@ -37,6 +37,8 @@ public class MyViewMaps {
                 btnMaps[i][j].setNumber(0);
             }
         }
+        sum = 0;
+        mScore.setText(""+sum);   //将分数重新置0
         addRandomButton();
     }
 
@@ -71,7 +73,7 @@ public class MyViewMaps {
     }
     private void setHighScore(){
         int highScore = Integer.valueOf(getmScore().getText().toString());
-        Log.i("分数。。。。。","highScore...."+highScore);
+        Log.i("分数。。。。。", "highScore...." + highScore);
         int nowScore = preferences.getInt("nowScore",0);
         if(nowScore < highScore){  //如果当前数据库中的分数小于现在的最高分数，将这个分数设置到界面上
             mHighScore.setText(""+highScore);
@@ -147,9 +149,15 @@ public boolean slideDirection(int direction){
     private boolean isFull(){
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
-                if(btnMaps[i][j].getNumber() == 0){ //这里还有bug,不光都为0时就游戏结束了。
+                if(btnMaps[i][j].getNumber()==0){ //当方块中有0时，游戏没有结束
                     return false;
                 }
+               /* if(i<n-1&&j<n-1){
+                    if(btnMaps[i][j].getNumber() == btnMaps[i][j+1].getNumber()
+                            ||btnMaps[i][j].getNumber() == btnMaps[i+1][j].getNumber()){  //当方块中有相邻的方块相等时，游戏没有结束
+                        return false;
+                    }
+                }*/
             }
         }
      return true;
@@ -211,7 +219,6 @@ public boolean slideDirection(int direction){
             }
         }
     }
-
     /**
      * 向下滑动的操作
      */
@@ -227,7 +234,6 @@ public boolean slideDirection(int direction){
                     btnMaps[j-1][i].setNumber(0);
                     setScore(sum);
                     setHighScore();
-
                     downRemoveBlock();
                 }
             }

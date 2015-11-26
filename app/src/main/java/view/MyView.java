@@ -7,8 +7,12 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
+
+import lzl.edu.com.mygameproject.Direction;
+import lzl.edu.com.mygameproject.MyViewMaps;
 
 /**
  * Created by admin on 2015/11/26.
@@ -18,6 +22,11 @@ public class MyView extends View {
     private int number;  //设置方块上面的数据
     private String numberVal;//设置String类型的数据
     private Rect rect;  //设置绘制的区域
+    private float startX;
+    private float startY;
+    private float endX;
+    private float endY;
+    MyViewMaps maps = new MyViewMaps();
     public MyView(Context context) {
         this(context, null);
     }
@@ -91,8 +100,7 @@ public class MyView extends View {
         paint.setColor(Color.parseColor(mBgColor));
         paint.setStyle(Paint.Style.FILL);
         RectF oval = new RectF(0,0,getWidth(),getHeight());   //绘制圆角矩形
-        canvas.drawRoundRect(oval,12,12,paint);
-//        canvas.drawRect(0, 0, getWidth(), getHeight(), paint);
+        canvas.drawRoundRect(oval, 12, 12, paint);
         if (number!=0){
             drawText(canvas);
         }
